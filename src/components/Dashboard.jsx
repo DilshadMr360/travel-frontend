@@ -11,7 +11,7 @@ const Dashboard = () => {
   } 
   return (
     <Fragment>
-      <div className="mt-2 container_mx">
+      <div className="mt-2 container_mx border-hidden">
         <h1> There are no bookings </h1>
         <button onClick={goHome}
           className="w-32 h-10 text-white"

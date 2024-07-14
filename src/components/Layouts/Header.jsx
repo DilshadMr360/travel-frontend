@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <header className="p-4 text-white" style={{ backgroundColor: defaultColor1 }}>
-            <div className="container flex items-center justify-between mx-auto">
+            <div className="container flex items-center justify-between mx-auto border-hidden">
                 {/* Tour Booking title */}
                 <div className="hidden text-2xl font-bold md:block"> {/* Hide on mobile */}
                     <Link to="/">Tour Booking</Link>

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Header from './components/Layouts/Header';
 import Footer from './components/Layouts/Footer';
 import Dashboard from './components/Dashboard';
+import Booking from './components/Booking';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/booking" element={<Booking />} />
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
     </main>

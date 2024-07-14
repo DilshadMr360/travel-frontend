@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginImage from "../assets/LoginImage.jpg";
 import { defaultColor1 } from '../config/colors';
+import api from '../services/api';
 
 const Register = () => {
 
@@ -11,17 +12,31 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfimrPassowrd] = useState('');
+    const [error, setError] = useState('');
 
+    const handleRegister = async () => {
+        if (password !== confirmpassword) {
+          setError('Passwords do not match');
+          return;
+        }
 
-    const handleRegister = () => {
-        alert(`Registered with email: ${email}`);
-    };
-
-    const navigateToLogin = () => {
-        navigate('/login');
-    };
-
-
+        try {
+            await api.post('/register', {
+              name: username,
+              email: email,
+              password: password,
+              password_confirmation: confirmpassword,
+            });
+            console.log('Registered successfully');
+            navigate('/login');
+          } catch (error) {
+            setError('Registration failed. Please check your details and try again.');
+          }
+        };
+        const navigateToLogin = () => {
+            navigate('/login');
+          };
+          
     return (
         <Fragment>
         <div className='w-screen min-h-screen md:flex'>
@@ -38,7 +53,7 @@ const Register = () => {
                         <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} placeholder="User Name" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none" />
                         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm " />
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="block w-full px-3 py-2 mt-4 border border-gray-300 rounded-md shadow-sm focus:outline-none" />
-                        <input type="password" value={confirmpassword} onChange={(e) => setConfimrPassword(e.target.value)} placeholder="Confirm Password" className="block w-full px-3 py-2 mt-4 border border-gray-300 rounded-md shadow-sm focus:outline-none" />
+                        <input type="password" value={confirmpassword} onChange={(e) => setConfimrPassowrd(e.target.value)} placeholder="Confirm Password" className="block w-full px-3 py-2 mt-4 border border-gray-300 rounded-md shadow-sm focus:outline-none" />
                         <button type="button" onClick={handleRegister} className="w-full px-4 py-2 mt-4 text-white border border-transparent rounded-md shadow-sm" style={{ backgroundColor: defaultColor1 }}>Register</button>
                         <div className='text-sm text-center'>
                             <h1>or</h1>

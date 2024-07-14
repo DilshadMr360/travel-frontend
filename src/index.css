@@ -7,11 +7,48 @@
 
 
 
-
 :root {
     font-family: "Inter", sans-serif;
   }
-
+  
   .poppins-font {
     font-family: 'Poppins', sans-serif;
 }
+
+@layer components {
+  .container {
+      @apply max-w-full border border-red-400 ;
+  }
+  .fw-container {
+      @apply max-w-full ;
+  }
+  /* .background {
+      @apply bg-[url('/public_html/images/img_bg_paws.png')] bg-center;
+  } */
+
+  /* @screen lg {
+      .container_mx_lg {
+          @apply max-w-full mx-2 border-2 border-red-500;
+      }
+  } */
+
+  @screen md {
+    .container_mx {
+      @apply max-w-full mx-4 border border-red-400;
+    }
+  }
+
+
+
+
+
+
+
+  /* @screen custom-screen {
+    .mx-10-lg {
+      @apply max-w-full mx-2 border-2 border-green-500;
+    }
+  } */
+  
+}
+

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import LoginImage from "../assets/LoginImage.jpg";
 import { defaultColor1 } from '../config/colors';
 import api from '../services/api';
-import { token } from 'stylis';
 import { useUser } from '../context/UserContext'; 
 
 const Login = () => {

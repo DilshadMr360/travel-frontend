@@ -11,7 +11,7 @@ const App = () => {
   const location = useLocation();
 
   // Determine if Header and Footer should be shown
-  const showHeaderFooter = !['/login', '/register'].includes(location.pathname);
+  const showHeaderFooter = !['/', '/register'].includes(location.pathname);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,7 +20,7 @@ const App = () => {
 
         <Routes>
 
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />

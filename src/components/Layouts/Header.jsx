@@ -36,6 +36,7 @@ const Header = () => {
                 </div>
                 {/* Navigation links */}
                 <nav className={`md:flex md:items-center md:space-x-3 ${isMenuOpen ? 'block' : 'hidden'}`}>
+                <Link to="/home" className="block px-3 py-2 text-white rounded-lg md:inline-block hover:bg-gray-700">Home</Link>
                     <Link to="/dashboard" className="block px-3 py-2 text-white rounded-lg md:inline-block hover:bg-gray-700">Dashboard</Link>
                     <Link to="/booking" className="block px-3 py-2 text-white rounded-lg md:inline-block hover:bg-gray-700">Booking</Link>
                     {user && <h1>Hi  {user.name}</h1>}

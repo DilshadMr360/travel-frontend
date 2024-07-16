@@ -28,13 +28,13 @@ const Register = () => {
               password_confirmation: confirmpassword,
             });
             console.log('Registered successfully');
-            navigate('/login');
+            navigate('/');
           } catch (error) {
             setError('Registration failed. Please check your details and try again.');
           }
         };
         const navigateToLogin = () => {
-            navigate('/login');
+            navigate('/');
           };
           
     return (

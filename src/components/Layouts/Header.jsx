@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { defaultColor1 } from '../../config/colors';
 import { FiMenu } from 'react-icons/fi';
 import { useUser } from '../../context/UserContext';
+import { useAuth } from '../../context/AuthContext';
 
 const Header = () => {
     const { user } = useUser();
+    const { logout } = useAuth();
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -14,8 +16,9 @@ const Header = () => {
     };
 
     const handleLogout = () => {
+        logout();
         localStorage.removeItem('token');
-        navigate('/login'); // Redirect to the login page
+        navigate('/'); // Redirect to the login page
     };
 
       // Log user object to console

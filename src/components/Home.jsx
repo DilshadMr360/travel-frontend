@@ -46,9 +46,12 @@ const Home = () => {
     navigate("/dashboard");
   };
 
-  const bookNow = () => {
-    navigate("/booking");
+  const bookNow = (tourid) => {
+    console.log('hellooooo', tourid); // Log tourid to console
+    navigate(`/booking/${tourid}`); // Navigate to the booking page with tourid
   };
+
+
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -107,7 +110,7 @@ const Home = () => {
               <div className="flex items-end justify-between ">
                 <h1>{tour.price}</h1>
                 <button
-                  onClick={bookNow}
+                  onClick={() => bookNow(tour.id)}
                   className="w-32 h-10 text-white"
                   style={{ backgroundColor: defaultColor1 }}
                 >

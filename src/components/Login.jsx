@@ -4,11 +4,14 @@ import LoginImage from "../assets/LoginImage.jpg";
 import { defaultColor1 } from '../config/colors';
 import api from '../services/api';
 import { useUser } from '../context/UserContext'; 
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
 
     const navigate = useNavigate();
     const { setUser } = useUser(); 
+    const { login } = useAuth(); 
+
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +25,7 @@ const Login = () => {
                 password: password,
               });
               localStorage.setItem('token', response.data.token);
+              login(response.data.token);
               setUser(response.data.user);
               console.log('Logged in successfully', response.data.user.name );
               navigate('/home');
